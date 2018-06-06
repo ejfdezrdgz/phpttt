@@ -1,0 +1,30 @@
+*{
+    border: 1px solid black;
+}
+
+#container{
+    width: 80%;
+    display: flex;
+    max-width: 700px;
+    justify-content: center;
+}
+
+#board{
+    width: 75%;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#bodiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cell{
+    width: 32.95%;
+    height: 32.95%;
+    background-color: aqua;
+}

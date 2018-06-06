@@ -14,10 +14,10 @@ if ($_POST) {
         var_dump($error);
     } else {
         $result = $connection->fetch_assoc();
-        $_SESSION["iduser"] = $result["id"];
+        $_SESSION["uid"] = $result["id"];
+        $_SESSION["uname"] = $result["name"];
         $_SESSION["unick"] = $result["nick"];
         header("Location: /tictactoe/lobby.php");
-        var_dump($result);
     }
 }
 ?>

@@ -23,13 +23,15 @@ if ($_POST) {
 ?>
 
 <body>
-    <h1>User login</h1>
-    <form action="" method="post">
-        <label for="name">Nick:</label>
-        <input type="text" name="nick" id="log_nick" required>
-        <label for="pass">Password:</label>
-        <input type="password" name="pass" id="log_pass" required>
-        <input type="submit" value="Log In">
-    </form>
-    <a href="signup.php">Register</a>
+    <div class="bodiv">
+        <h1>User login</h1>
+        <form action="" method="post">
+            <label for="name">Nick:</label>
+            <input type="text" name="nick" id="log_nick" required>
+            <label for="pass">Password:</label>
+            <input type="password" name="pass" id="log_pass" required>
+            <input type="submit" value="Log In">
+        </form>
+        <a href="signup.php">Register</a>
+    </div>
 </body>

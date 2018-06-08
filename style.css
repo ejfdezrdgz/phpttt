@@ -22,13 +22,6 @@ hr{
     width: 80%;
 }
 
-#container{
-    width: 50%;
-    display: flex;
-    max-width: 700px;
-    justify-content: center;
-}
-
 #board{
     width: 300px;
     height: 300px;
@@ -36,10 +29,21 @@ hr{
     flex-wrap: wrap;
 }
 
+#container{
+    width: 50%;
+    display: flex;
+    max-width: 700px;
+    justify-content: center;
+}
+
+#newgame{
+    align-self: center;
+}
+
 #ongoingbtn{
     position: fixed;
-    top: 30%;
-    left: 0;
+    top: 20%;
+    left: 5%;
 }
 
 #playerA{
@@ -50,12 +54,12 @@ hr{
     background-color: tomato;
 }
 
-.player{
-    width: 20%;
+#tablesdiv{
+    width: 60%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .bodiv{
@@ -70,4 +74,31 @@ hr{
     width: 98px;
     height: 98px;
     background-color: gainsboro;
+}
+
+.cellO{
+    width: 98px;
+    height: 98px;
+    background-color: gainsboro;
+}
+
+.cellX{
+    width: 98px;
+    height: 98px;
+    background-color: gainsboro;
+}
+
+.player{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.table{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

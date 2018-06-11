@@ -7,7 +7,8 @@ if (!isset($_SESSION["unick"])) {
 if (isset($_GET["id"])) {
     $mId = $_GET["id"];
     $uid = $_SESSION["uid"];
-    $query = "UPDATE matches SET playerB = $uid WHERE id = $mId";
+    $turn = rand(1, 2);
+    $query = "UPDATE matches SET playerB = $uid, turn = $turn WHERE id = $mId";
     $connection = $mysqli->query($query);
     if ($connection) {
         $_SESSION["matchid"] = $mId;
@@ -36,6 +37,11 @@ if ($connection->num_rows == 0) {
 }
 
 ?>
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+
 <html>
     <body>
         <div class="bodiv">
@@ -45,7 +51,7 @@ if ($connection->num_rows == 0) {
             </header>
             <h1>Match <span id="mIdSpan"><?php echo $mId ?></span></h1>
             <div id="container">
-                <div class="player" id="playerA"><?php echo $match["playerA"] ?></div>
+                <div class="player playerAOff" id="playerA"><?php echo $match["playerA"] ?></div>
                 <div id="board">
                     <div class="cell" id="cell0"></div>
                     <div class="cell" id="cell1"></div>
@@ -57,7 +63,7 @@ if ($connection->num_rows == 0) {
                     <div class="cell" id="cell7"></div>
                     <div class="cell" id="cell8"></div>
                 </div>
-                <div class="player" id="playerB"><?php echo $match["playerB"] ?></div>
+                <div class="player playerBOff" id="playerB"><?php echo $match["playerB"] ?></div>
             </div>
         </div>
     </body>

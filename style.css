@@ -46,14 +46,6 @@ hr{
     left: 5%;
 }
 
-#playerA{
-    background-color: aquamarine;
-}
-
-#playerB{
-    background-color: tomato;
-}
-
 #tablesdiv{
     width: 60%;
     display: flex;
@@ -73,18 +65,20 @@ hr{
 .cell{
     width: 98px;
     height: 98px;
+    font-size: 40pt;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     background-color: gainsboro;
 }
 
-.cellO{
+.cellOff{
     width: 98px;
     height: 98px;
-    background-color: gainsboro;
-}
-
-.cellX{
-    width: 98px;
-    height: 98px;
+    font-size: 40pt;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     background-color: gainsboro;
 }
 
@@ -94,6 +88,22 @@ hr{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.playerAOff{
+    background-color: aquamarine;
+}
+
+.playerAOn{
+    background-color: darkturquoise;
+}
+
+.playerBOff{
+    background-color: tomato;
+}
+
+.playerBOn{
+    background-color: firebrick;
 }
 
 .table{

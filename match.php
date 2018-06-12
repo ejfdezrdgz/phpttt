@@ -1,8 +1,6 @@
 <?php
 include "matchheader.php";
-if (!isset($_SESSION["unick"])) {
-    header("Location: /tictactoe");
-}
+include "sessioner.php";
 
 if (isset($_GET["id"])) {
     $mId = $_GET["id"];
@@ -51,7 +49,10 @@ if ($connection->num_rows == 0) {
             </header>
             <h1>Match <span id="mIdSpan"><?php echo $mId ?></span></h1>
             <div id="container">
-                <div class="player playerAOff" id="playerA"><?php echo $match["playerA"] ?></div>
+                <div class="player playerAOff" id="playerA">
+                    <span class="pbadge"><?php echo $match["playerA"] ?></span>
+                    <i class="tbadge fas fa-times"></i>
+                </div>
                 <div id="board">
                     <div class="cell" id="cell0"></div>
                     <div class="cell" id="cell1"></div>
@@ -63,7 +64,10 @@ if ($connection->num_rows == 0) {
                     <div class="cell" id="cell7"></div>
                     <div class="cell" id="cell8"></div>
                 </div>
-                <div class="player playerBOff" id="playerB"><?php echo $match["playerB"] ?></div>
+                <div class="player playerBOff" id="playerB">
+                    <span class="pbadge"><?php echo $match["playerB"] ?></span>
+                    <i class="tbadge far fa-circle"></i>
+                </div>
             </div>
         </div>
     </body>

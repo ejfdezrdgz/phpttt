@@ -1,6 +1,5 @@
 <?php
-session_start();
-$mysqli = new mysqli('localhost', 'tttadmin', '8u88bx6xtz8nZYBX', 'tictactoe');
+include "header.php";
 
 if (isset($_GET["id"])) {
     $mId = $_GET["id"];
@@ -65,5 +64,17 @@ if (isset($_GET["rid"])) {
             'cells' => $resarray,
         ];
         echo json_encode($obj);
+    }
+}
+
+if (isset($_GET["result"])) {
+    $mId = $_GET["matchid"];
+    $result = $_GET["result"];
+    $query = "UPDATE matches SET status=$result WHERE id=$mId";
+    $connection = $mysqli->query($query);
+    if ($connection) {
+        echo "Match ended and updated correctly";
+    } else {
+        echo "Database query failed";
     }
 }

@@ -1,23 +1,28 @@
 <?php
 include "header.php";
 if (isset($_SESSION["unick"])) {
-    header("Location: /tictactoe/lobby.php");
+    header("Location: lobby.php");
 }
 
 if ($_POST) {
     $nick = $_POST["nick"];
     $pass = $_POST["pass"];
-    $stdquery = "SELECT * FROM users WHERE nick='$nick' AND pass='$pass'";
-    $connection = $mysqli->query($stdquery);
-    if ($connection->num_rows == 0) {
-        $error = "Get errored";
-        var_dump($error);
-    } else {
-        $result = $connection->fetch_assoc();
-        $_SESSION["uid"] = $result["id"];
-        $_SESSION["uname"] = $result["name"];
-        $_SESSION["unick"] = $result["nick"];
-        header("Location: /tictactoe/lobby.php");
+    $stdquery = "SELECT * FROM users WHERE nick=? AND pass=?";
+
+    if ($stmt = $mysqli->prepare($stdquery)) {
+        $stmt->bind_param("ss", $nick, $pass);
+        $stmt->execute();
+        $r = $stmt->get_result();
+        if ($r->num_rows == 0) {
+            $error = "XD LOL Get errored";
+            var_dump($error);
+        } else {
+            $result = $r->fetch_assoc();
+            $_SESSION["uid"] = $result["id"];
+            $_SESSION["uname"] = $result["name"];
+            $_SESSION["unick"] = $result["nick"];
+            header("Location: lobby.php");
+        }
     }
 }
 ?>

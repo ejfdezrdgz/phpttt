@@ -44,8 +44,8 @@ if ($connection->num_rows == 0) {
     <body>
         <div class="bodiv">
             <header>
-                <a href="/tictactoe">Home page</a>
-                <a href="/tictactoe/logout.php">Logout</a>
+                <a href="/">Home page</a>
+                <a href="logout.php">Logout</a>
             </header>
             <h1>Match <span id="mIdSpan"><?php echo $mId ?></span></h1>
             <div id="container">

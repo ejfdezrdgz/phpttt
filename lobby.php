@@ -11,14 +11,18 @@ if ($_GET) {
         $action = $_GET["act"];
         switch ($action) {
             case 'newgame':
-                $query = "INSERT INTO matches (playerA) VALUE ($uid)";
-                $newmatch = $mysqli->query($query);
-                $thismatch = $mysqli->insert_id;
-                if (!$newmatch) {
-                    $error = "Failed to create new game";
+                $query = "INSERT INTO matches (playerA) VALUE (?)";
+                if ($stmt = $mysqli->prepare($query)) {
+                    $stmt->bind_param("s", $uid);
+                    $r = $stmt->execute();
+                    $thismatch = $mysqli->insert_id;
+                    if (!$r) {
+                        $error = "Failed to create new game";
+                    } else {
+                        $_SESSION["matchid"] = $thismatch;
+                        header("Location: lobby.php");
+                    }
                 }
-                $_SESSION["matchid"] = $thismatch;
-                header("Location: lobby.php");
                 break;
         }
     }
@@ -60,7 +64,7 @@ if ($selmymatch->num_rows > 0) {
     <div class="bodiv">
         <header>
             <a><?php echo $uname ?></a>
-            <a href="/tictactoe/logout.php">Logout</a>
+            <a href="logout.php">Logout</a>
         </header>
         <h1>Game lobby</h1>
         <hr>
@@ -76,21 +80,21 @@ if ($selmymatch->num_rows > 0) {
                         </thead>
                         <tbody>
                         <?php
-                            if (isset($waittable)) {
-                                echo $waittable;
-                            } else {
-                                echo $waiterror;
-                            }
-                            ?>
+if (isset($waittable)) {
+    echo $waittable;
+} else {
+    echo $waiterror;
+}
+?>
                         </tbody>
                     </table>
                 </div>
                 <div>
                     <?php
-                        if (isset($waiterror)) {
-                            echo $waiterror;
-                        }
-                        ?>
+if (isset($waiterror)) {
+    echo $waiterror;
+}
+?>
                 </div>
                 <a href="lobby.php?act=newgame" id="newgame">
                     <button>New Game</button>
@@ -107,21 +111,21 @@ if ($selmymatch->num_rows > 0) {
                         </thead>
                         <tbody>
                             <?php
-                                if (isset($mytable)) {
-                                    echo $mytable;
-                                } else {
-                                    echo $myerror;
-                                }
-                                ?>
+if (isset($mytable)) {
+    echo $mytable;
+} else {
+    echo $myerror;
+}
+?>
                         </tbody>
                     </table>
                 </div>
                 <div>
                     <?php
-                        if (isset($myerror)) {
-                            echo $myerror;
-                        }
-                        ?>
+if (isset($myerror)) {
+    echo $myerror;
+}
+?>
                 </div>
             </div>
         </div>

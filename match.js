@@ -2,6 +2,7 @@ window.onload = function () {
 
     var turn = null;
     var result = 0;
+    var player = null;
     var reltabletimer;
     var cells = document.getElementsByClassName("cell");
     var id = document.getElementById("mIdSpan").innerText;
@@ -31,7 +32,7 @@ window.onload = function () {
             let req = new XMLHttpRequest();
             req.open("GET", `ajax.php?matchid=${id}&cellid=${cellid}`, true);
             req.addEventListener("load", function () {
-                console.log(req.response);
+                // console.log(req.response);
             });
             req.send(null);
         } else {

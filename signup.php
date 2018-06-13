@@ -8,7 +8,7 @@ if ($_POST) {
     $stdquery = "INSERT INTO users (name, nick, pass) VALUES ('$name', '$nick', '$pass')";
     $connection = $mysqli->query($stdquery);
     if ($connection) {
-        header('Location: /tictactoe');
+        header('Location: /');
     } else {
         $error = "Error creating user";
     }

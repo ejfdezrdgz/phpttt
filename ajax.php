@@ -1,5 +1,6 @@
 <?php
-include "header.php";
+session_start();
+$mysqli = new mysqli('localhost', 'tttadmin', '8u88bx6xtz8nZYBX', 'tictactoe');
 
 if (isset($_GET["id"])) {
     $mId = $_GET["id"];
@@ -61,7 +62,7 @@ if (isset($_GET["rid"])) {
             'turn' => $turn,
             'playerA' => $pid1,
             'playerB' => $pid2,
-            'cells' => $resarray,
+            'cells' => $resarray
         ];
         echo json_encode($obj);
     }

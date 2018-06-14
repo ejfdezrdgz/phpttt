@@ -18,6 +18,10 @@ if ($_POST) {
 }
 ?>
 
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+
 <body>
     <div class="bodiv">
         <h1>User signup</h1>
@@ -30,8 +34,8 @@ if ($_POST) {
             <input type="password" name="pass" id="sign_pass1" required>
             <label for="sign_pass2">Repeat password:</label>
             <input type="password" name="repass" id="sign_pass2" required>
-            <input type="submit" value="Sign Up">
+            <input type="submit" class="formbtn" value="Sign Up">
+            <a href="index.php"><i class="fas fa-sign-in-alt"></i></a>
         </form>
-        <a href="index.php">Login</a>
     </div>
 </body>

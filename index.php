@@ -27,6 +27,10 @@ if ($_POST) {
 }
 ?>
 
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+
 <body>
     <div class="bodiv">
         <h1>User login</h1>
@@ -35,8 +39,8 @@ if ($_POST) {
             <input type="text" name="nick" id="log_nick" required>
             <label for="pass">Password:</label>
             <input type="password" name="pass" id="log_pass" required>
-            <input type="submit" value="Log In">
+            <input type="submit" class="formbtn" value="Log In">
+            <a href="signup.php"><i class="fas fa-user-plus"></i></a>
         </form>
-        <a href="signup.php">Register</a>
     </div>
 </body>

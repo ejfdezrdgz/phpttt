@@ -51,6 +51,7 @@ if ($_GET) {
         <a href="match.php" id="latestbtn"><i class="fas fa-arrow-left"></i></a>
         <div id="tablesdiv">
             <div id="waittable" class="table">
+                <p>Awaiting for opponent</p>
                 <div>
                     <table border=1 frame=void rules=rows>
                         <thead>
@@ -79,6 +80,7 @@ if (isset($waiterror)) {
                 </a>
             </div>
             <div id="mytable" class="table">
+                <p>Your matches</p>
                 <div>
                     <table border=1 frame=void rules=rows>
                         <thead>

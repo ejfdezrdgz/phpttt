@@ -7,6 +7,39 @@ body{
     margin: 0;
 }
 
+form{
+    width: 300px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+form a{
+    left: 5%;
+    top: 170px;
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+    display: flex;
+    font-size: 10pt;
+    position: fixed;
+    text-align: center;
+    border-radius: 50%;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    background-color: gainsboro;
+}
+
+form i{
+    font-size: 18pt;
+    color: rebeccapurple;
+}
+
+form input{
+    margin: 10px;
+}
+
 h1{
     padding: 10px;
     padding-top: 0;
@@ -42,12 +75,12 @@ hr{
 }
 
 #container{
-    width: 50%;
+    width: 500px;
     display: flex;
     max-width: 700px;
     align-items: center;
-    justify-content: center;
     background-color: black;
+    justify-content: space-between;
 }
 
 #newgame{
@@ -119,6 +152,15 @@ hr{
     color: green;
 }
 
+.formbtn{
+    width: 30%;
+    align-self: center;
+}
+
+.gotturn{
+    background-color: lightblue;
+}
+
 .pbadge{
     padding: 5px;
     font-weight: 600;
@@ -127,7 +169,7 @@ hr{
 
 .player{
     width: 100%;
-    height: 100%;
+    height: 306px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -177,11 +219,36 @@ hr{
     padding: 5px;
 }
 
+.table p{
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 600;
+    background-color: gainsboro
+}
+
 .tbadge{
     font-size: 40pt;
 }
 
 @media only screen and (max-width: 768px){
+
+    form a{
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        display: flex;
+        font-size: 10pt;
+        position: fixed;
+        text-align: center;
+        border-radius: 0%;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+        background-color: gainsboro;
+    }
 
     #board{
         grid-row: 2;

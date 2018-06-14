@@ -18,7 +18,8 @@ window.onload = function () {
         let req = new XMLHttpRequest();
         req.open("GET", `ajax.php?id=${id}`, true);
         req.addEventListener("load", function () {
-            document.getElementById("playerB").innerHTML = req.responseText;
+            playerBName = req.responseText;
+            document.getElementById("playerB").innerHTML = `<span class="pbadge">${playerBName}</span><i class="tbadge far fa-circle"></i>`;
             if (req.responseText != "") {
                 clearInterval(namegettimer);
                 reltabletimer = window.setInterval(reloadtable, 1000);

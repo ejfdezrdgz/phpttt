@@ -1,6 +1,6 @@
 window.onload = function () {
 
-    var timer = window.setInterval(lobbyreload, 1000);
+    var timer = window.setInterval(lobbyreload, 5000);
 
     function lobbyreload() {
         let req = new XMLHttpRequest();

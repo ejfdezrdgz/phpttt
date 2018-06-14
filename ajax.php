@@ -1,4 +1,6 @@
 <?php
+include "funcs.php";
+
 session_start();
 $mysqli = new mysqli('localhost', 'tttadmin', '8u88bx6xtz8nZYBX', 'tictactoe');
 
@@ -29,7 +31,7 @@ if (isset($_GET["cellid"])) {
             $turn = 1;
         }
     }
-    echo $cellid." ";
+    echo $cellid . " ";
     if ($cellid == 0) {
         $query = "UPDATE matches SET $cellid=$uid, turn=$turn WHERE matches.id=$mId";
         $connection = $mysqli->query($query);
@@ -42,6 +44,11 @@ if (isset($_GET["cellid"])) {
         echo "U WOT M8";
     }
 
+}
+
+if (isset($_GET["lr"])) {
+    $obj = lobbydata();
+    echo json_encode($obj);
 }
 
 if (isset($_GET["rid"])) {
@@ -62,7 +69,7 @@ if (isset($_GET["rid"])) {
             'turn' => $turn,
             'playerA' => $pid1,
             'playerB' => $pid2,
-            'cells' => $resarray
+            'cells' => $resarray,
         ];
         echo json_encode($obj);
     }

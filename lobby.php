@@ -4,6 +4,7 @@ include "header.php";
 include "sessioner.php";
 
 $obj = lobbydata();
+$gobj = mymatches();
 $uid = $_SESSION["uid"];
 $uname = $_SESSION["uname"];
 $unick = $_SESSION["unick"];
@@ -104,6 +105,20 @@ if (isset($myerror)) {
     echo $myerror;
 }
 ?>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="stats">
+            <h3>Game Stats</h3>
+            <div id="statscont">
+                <img src="graphstats.php" alt="">
+                <div id="statscol">
+                    <div class="stat" id="swon"><?php echo "Won: $gobj[nwon]" ?></div>
+                    <div class="stat" id="sdraw"><?php echo "Drawn: $gobj[ndraw]" ?></div>
+                    <div class="stat" id="slost"><?php echo "Lost: $gobj[nlost]" ?></div>
+                    <div class="stat" id="sopen"><?php echo "Ongoing: $gobj[nopen]" ?></div>
+                    <div class="stat" id="sdone"><?php echo "Total: $gobj[ndone]" ?></div>
                 </div>
             </div>
         </div>

@@ -2,8 +2,8 @@
 
 function lobbydata()
 {
-    $mysqli = new mysqli('localhost', 'tttadmin', '8u88bx6xtz8nZYBX', 'tictactoe');
     $uid = $_SESSION["uid"];
+    $mysqli = new mysqli('localhost', 'tttadmin', '8u88bx6xtz8nZYBX', 'tictactoe');
     $query = "SELECT name,matches.id FROM users, matches WHERE status=0 AND playerA=users.id AND users.id!=$uid AND playerB=0";
     $query2 = "SELECT matches.id, user1.name as uname1, user2.name as uname2, turn, playerA, playerB FROM matches LEFT JOIN users user1 ON playerA=user1.id LEFT JOIN users user2 ON playerB=user2.id WHERE status=0 AND (playerA=$uid OR playerB=$uid)";
     $selwaitmatch = $mysqli->query($query);
@@ -79,4 +79,56 @@ function lobbydata()
 
     return $obj;
 
+};
+
+function mymatches()
+{
+    $uid = $_SESSION["uid"];
+    $mysqli = new mysqli('localhost', 'tttadmin', '8u88bx6xtz8nZYBX', 'tictactoe');
+    $query3 = "SELECT status, playerB FROM matches WHERE playerA=$uid OR playerB=$uid";
+    $allmymatches = $mysqli->query($query3);
+    if ($allmymatches->num_rows > 0) {
+        $nwon = 0;
+        $nlost = 0;
+        $ndraw = 0;
+        $ndone = 0;
+        $nopen = 0;
+        while ($matchdata = $allmymatches->fetch_assoc()) {
+            switch ($matchdata["status"]) {
+                case 0:
+                    if ($matchdata["playerB"] != null) {
+                        $nopen++;
+                        $ndone++;
+                    }
+                    break;
+
+                case -1:
+                    $ndraw++;
+                    $ndone++;
+                    break;
+
+                case $uid:
+                    $nwon++;
+                    $ndone++;
+                    break;
+
+                default:
+                    $nlost++;
+                    $ndone++;
+                    break;
+            }
+        }
+
+        $gobj = [
+            'nwon' => $nwon,
+            'ndraw' => $ndraw,
+            'nlost' => $nlost,
+            'nopen' => $nopen,
+            'ndone' => $ndone,
+        ];
+
+        return $gobj;
+    } else {
+        return "No results";
+    }
 };

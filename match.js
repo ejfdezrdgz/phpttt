@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = function() {
 
     var turn = null;
     var result = 0;
@@ -9,7 +9,7 @@ window.onload = function () {
     var namegettimer = window.setInterval(nameget, 1000);
 
     for (const cell of cells) {
-        cell.onclick = function () {
+        cell.onclick = function() {
             activecell(this.id);
         }
     }
@@ -17,7 +17,7 @@ window.onload = function () {
     function nameget() {
         let req = new XMLHttpRequest();
         req.open("GET", `ajax.php?id=${id}`, true);
-        req.addEventListener("load", function () {
+        req.addEventListener("load", function() {
             playerBName = req.responseText;
             document.getElementById("playerB").innerHTML = `<span class="pbadge">${playerBName}</span><i class="tbadge far fa-circle"></i>`;
             if (req.responseText != "") {
@@ -32,7 +32,7 @@ window.onload = function () {
         if (turn == player && result == 0) {
             let req = new XMLHttpRequest();
             req.open("GET", `ajax.php?matchid=${id}&cellid=${cellid}`, true);
-            req.addEventListener("load", function () {
+            req.addEventListener("load", function() {
                 // console.log(req.response);
             });
             req.send(null);
@@ -44,7 +44,7 @@ window.onload = function () {
     function reloadtable() {
         let req = new XMLHttpRequest();
         req.open("GET", `ajax.php?rid=${id}`, true);
-        req.addEventListener("load", function () {
+        req.addEventListener("load", function() {
             data = JSON.parse(req.response);
             turn = data.turn;
             if (data.user == data.playerA) {
@@ -93,7 +93,7 @@ window.onload = function () {
         let req = new XMLHttpRequest();
         let query = `ajax.php?result=${result}&matchid=${matchid}`;
         req.open("GET", query, true);
-        req.addEventListener("load", function () {
+        req.addEventListener("load", function() {
             console.log(req.response);
         });
         req.send(null);

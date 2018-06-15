@@ -1,20 +1,20 @@
-*{
+* {
     /* border: 1px solid black; */
     font-family: "Segoe UI";
 }
 
-body{
+body {
     margin: 0;
 }
 
-form{
+form {
     width: 300px;
     margin: 15px;
     display: flex;
     flex-direction: column;
 }
 
-form a{
+form a {
     left: 5%;
     top: 170px;
     width: 45px;
@@ -31,16 +31,16 @@ form a{
     background-color: gainsboro;
 }
 
-form i{
+form i {
     font-size: 18pt;
     color: rebeccapurple;
 }
 
-form input{
+form input {
     margin: 10px;
 }
 
-h1{
+h1 {
     padding: 10px;
     padding-top: 0;
     margin-bottom: 10px;
@@ -48,7 +48,7 @@ h1{
     background-color: gainsboro;
 }
 
-header{
+header {
     width: 100%;
     height: 40px;
     display: flex;
@@ -57,24 +57,24 @@ header{
     justify-content: space-between;
 }
 
-header a{
+header a {
     margin-left: 15px;
     margin-right: 15px;
     text-decoration: none;
 }
 
-hr{
+hr {
     width: 80%;
 }
 
-#board{
+#board {
     display: grid;
     grid-gap: 3px;
     grid-template-rows: 100px 100px 100px;
     grid-template-columns: 100px 100px 100px;
 }
 
-#container{
+#container {
     width: 500px;
     display: flex;
     max-width: 700px;
@@ -83,11 +83,11 @@ hr{
     justify-content: space-between;
 }
 
-#newgame{
+#newgame {
     align-self: center;
 }
 
-#latestbtn{
+#latestbtn {
     left: 5%;
     top: 170px;
     width: 45px;
@@ -103,7 +103,50 @@ hr{
     background-color: gainsboro;
 }
 
-#tablesdiv{
+#stats {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#statscol {
+    display: flex;
+    flex-direction: column;
+}
+
+#statscont {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: gainsboro
+}
+
+.stat {
+    padding: 5px;
+}
+
+#swon {
+    background-color: #cee8f1;
+}
+
+#sdraw {
+    background-color: #a2d4e7;
+}
+
+#slost {
+    background-color: #77bbd6;
+}
+
+#sopen {
+    background-color: #50a5c7;
+}
+
+#sdone {
+    background-color: #2d85a8;
+}
+
+#tablesdiv {
     width: 60%;
     display: flex;
     margin-top: 10px;
@@ -112,13 +155,13 @@ hr{
     justify-content: space-evenly;
 }
 
-#tablesdiv thead{
+#tablesdiv thead {
     flex: 1;
     width: 100%;
     margin: 10px;
 }
 
-.bodiv{
+.bodiv {
     width: 100%;
     display: flex;
     align-items: center;
@@ -128,7 +171,7 @@ hr{
     background-color: paleturquoise;
 }
 
-.cell{
+.cell {
     width: 100px;
     height: 100px;
     font-size: 40pt;
@@ -138,7 +181,7 @@ hr{
     background-color: gainsboro;
 }
 
-.cellOff{
+.cellOff {
     width: 100px;
     height: 100px;
     font-size: 40pt;
@@ -148,26 +191,26 @@ hr{
     background-color: gainsboro;
 }
 
-.fa-arrow-right{
+.fa-arrow-right {
     color: green;
 }
 
-.formbtn{
+.formbtn {
     width: 30%;
     align-self: center;
 }
 
-.gotturn{
+.gotturn {
     background-color: lightblue;
 }
 
-.pbadge{
+.pbadge {
     padding: 5px;
     font-weight: 600;
     background-color: gainsboro;
 }
 
-.player{
+.player {
     width: 100%;
     height: 306px;
     display: flex;
@@ -176,50 +219,50 @@ hr{
     justify-content: space-evenly;
 }
 
-.playerAOff{
+.playerAOff {
     background-color: aquamarine;
 }
 
-.playerAOn{
+.playerAOn {
     background-color: darkturquoise;
 }
 
-.playerBOff{
+.playerBOff {
     background-color: tomato;
 }
 
-.playerBOn{
+.playerBOn {
     background-color: firebrick;
 }
 
-.table{
+.table {
     height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.table div{
+.table div {
     width: 100%;
     margin-bottom: 5px;
     text-align: center;
 }
 
-.table table{
+.table table {
     width: 100%;
     border-collapse: collapse;
     background-color: gainsboro;
 }
 
-.table td{
+.table td {
     padding: 5px;
 }
 
-.table th{
+.table th {
     padding: 5px;
 }
 
-.table p{
+.table p {
     padding: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -227,13 +270,13 @@ hr{
     background-color: gainsboro
 }
 
-.tbadge{
+.tbadge {
     font-size: 40pt;
 }
 
-@media only screen and (max-width: 768px){
-
-    form a{
+@media only screen and (max-width: 768px) {
+    form a {
+        top: unset;
         left: 0;
         bottom: 0;
         width: 30px;
@@ -249,28 +292,26 @@ hr{
         justify-content: center;
         background-color: gainsboro;
     }
-
-    #board{
+    #board {
         grid-row: 2;
         grid-column-end: 3;
         grid-column-start: 1;
     }
-
-    #container{
+    #container {
         width: 306px;
         align-items: center;
         flex-direction: column;
     }
-
-    .player{
+    .bodiv {
+        height: -webkit-fill-available;
+    }
+    .player {
         width: 100%;
         height: 50px;
         display: flex;
         flex-direction: row;
     }
-
     .tbadge {
         font-size: 30pt;
     }
-
 }

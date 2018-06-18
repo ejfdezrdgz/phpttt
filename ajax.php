@@ -1,20 +1,6 @@
 <?php
+include "sql.php";
 include "funcs.php";
-
-session_start();
-$mysqli = new mysqli('localhost', 'tttadmin', '8u88bx6xtz8nZYBX', 'tictactoe');
-
-if (isset($_GET["id"])) {
-    $mId = $_GET["id"];
-    $query = "SELECT name FROM matches LEFT JOIN users ON users.id=playerB WHERE matches.id=$mId";
-    $connection = $mysqli->query($query);
-    if ($connection->num_rows == 0) {
-        echo "Waiting...";
-    } else {
-        $result = $connection->fetch_assoc();
-        echo $result["name"];
-    }
-}
 
 if (isset($_GET["cellid"])) {
     $uid = $_SESSION["uid"];
@@ -46,9 +32,49 @@ if (isset($_GET["cellid"])) {
 
 }
 
+if (isset($_GET["getname"])) {
+    $nameval = $_GET["getname"];
+    $namequery = "SELECT * FROM users WHERE name=?";
+    if ($stmt = $mysqli->prepare($namequery)) {
+        $stmt->bind_param("s", $nameval);
+        $stmt->execute();
+        $r = $stmt->get_result();
+        if ($r->num_rows == 0) {
+            echo "true";
+        } else {
+            echo "false";
+        }
+    }
+}
+
+if (isset($_GET["id"])) {
+    $mId = $_GET["id"];
+    $query = "SELECT name FROM matches LEFT JOIN users ON users.id=playerB WHERE matches.id=$mId";
+    $connection = $mysqli->query($query);
+    if ($connection->num_rows == 0) {
+        echo "Waiting...";
+    } else {
+        $result = $connection->fetch_assoc();
+        echo $result["name"];
+    }
+}
+
 if (isset($_GET["lr"])) {
     $obj = lobbydata();
+    // echo $obj;
     echo json_encode($obj);
+}
+
+if (isset($_GET["result"])) {
+    $mId = $_GET["matchid"];
+    $result = $_GET["result"];
+    $query = "UPDATE matches SET status=$result WHERE id=$mId";
+    $connection = $mysqli->query($query);
+    if ($connection) {
+        echo "Match ended and updated correctly";
+    } else {
+        echo "Database query failed";
+    }
 }
 
 if (isset($_GET["rid"])) {
@@ -72,17 +98,5 @@ if (isset($_GET["rid"])) {
             'cells' => $resarray,
         ];
         echo json_encode($obj);
-    }
-}
-
-if (isset($_GET["result"])) {
-    $mId = $_GET["matchid"];
-    $result = $_GET["result"];
-    $query = "UPDATE matches SET status=$result WHERE id=$mId";
-    $connection = $mysqli->query($query);
-    if ($connection) {
-        echo "Match ended and updated correctly";
-    } else {
-        echo "Database query failed";
     }
 }

@@ -5,7 +5,7 @@ window.onload = function() {
     function lobbyreload() {
         let req = new XMLHttpRequest();
         req.open("GET", "ajax.php?lr", true);
-        req.addEventListener("load", function() {
+        req.addEventListener("load", function() {            
             data = JSON.parse(req.response);
             document.getElementById("wtable").innerHTML = data.wtable;
             document.getElementById("werror").innerHTML = data.werror;

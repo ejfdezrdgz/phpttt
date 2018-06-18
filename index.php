@@ -1,5 +1,6 @@
 <?php
-include "header.php";
+session_start();
+include "sql.php";
 if (isset($_SESSION["unick"])) {
     header("Location: lobby.php");
 }
@@ -25,11 +26,9 @@ if ($_POST) {
         }
     }
 }
-?>
 
-<head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-</head>
+include "header.html";
+?>
 
 <body>
     <div class="bodiv">

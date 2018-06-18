@@ -1,13 +1,14 @@
 <?php
+include "sql.php";
+$uid = $_SESSION["uid"];
+$uname = $_SESSION["uname"];
+$unick = $_SESSION["unick"];
+
 include "funcs.php";
-include "header.php";
 include "sessioner.php";
 
 $obj = lobbydata();
 $gobj = mymatches();
-$uid = $_SESSION["uid"];
-$uname = $_SESSION["uname"];
-$unick = $_SESSION["unick"];
 $waittable = $obj["wtable"];
 $waiterror = $obj["werror"];
 $mytable = $obj["mtable"];
@@ -34,12 +35,9 @@ if ($_GET) {
         }
     }
 }
-?>
 
-<head>
-    <script src="lobby.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-</head>
+include "header.html";
+?>
 
 <body>
     <div class="bodiv">
@@ -123,4 +121,5 @@ if (isset($myerror)) {
             </div>
         </div>
     </div>
+    <script src="lobby.js"></script>
 </body>

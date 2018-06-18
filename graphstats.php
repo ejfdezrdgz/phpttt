@@ -1,5 +1,5 @@
 <?php
-session_start();
+include "sql.php";
 include "funcs.php";
 include_once "jpgraph/src/jpgraph.php";
 include_once "jpgraph/src/jpgraph_pie.php";

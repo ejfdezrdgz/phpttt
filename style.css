@@ -103,6 +103,12 @@ hr {
     background-color: gainsboro;
 }
 
+#passerrbox{
+    display: flex;
+    justify-content: center;
+    background-color: gainsboro;
+}
+
 #stats {
     display: flex;
     align-items: center;

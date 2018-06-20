@@ -5,6 +5,7 @@
 
 body {
     margin: 0;
+    height: 90%;
 }
 
 form {
@@ -28,6 +29,7 @@ form a {
     align-items: center;
     text-decoration: none;
     justify-content: center;
+    box-shadow: 0px 0px 4px 1px;
     background-color: gainsboro;
 }
 
@@ -43,15 +45,19 @@ form input {
 h1 {
     padding: 10px;
     padding-top: 0;
+    margin-top: 55px;
+    width: fit-content;
     margin-bottom: 10px;
     padding-bottom: 5px;
     background-color: gainsboro;
 }
 
 header {
+    top: 0;
     width: 100%;
     height: 40px;
     display: flex;
+    position: absolute;
     align-items: center;
     background-color: gainsboro;
     justify-content: space-between;
@@ -65,6 +71,10 @@ header a {
 
 hr {
     width: 80%;
+}
+
+html {
+    height: 100%;
 }
 
 #board {
@@ -100,10 +110,11 @@ hr {
     align-items: center;
     text-decoration: none;
     justify-content: center;
+    box-shadow: 0px 0px 4px 1px;
     background-color: gainsboro;
 }
 
-#passerrbox{
+#passerrbox {
     display: flex;
     justify-content: center;
     background-color: gainsboro;
@@ -126,10 +137,6 @@ hr {
     align-items: center;
     justify-content: space-around;
     background-color: gainsboro
-}
-
-.stat {
-    padding: 5px;
 }
 
 #swon {
@@ -173,7 +180,6 @@ hr {
     align-items: center;
     padding-bottom: 30px;
     flex-direction: column;
-    justify-content: center;
     background-color: paleturquoise;
 }
 
@@ -239,6 +245,10 @@ hr {
 
 .playerBOn {
     background-color: firebrick;
+}
+
+.stat {
+    padding: 5px;
 }
 
 .table {
@@ -308,8 +318,24 @@ hr {
         align-items: center;
         flex-direction: column;
     }
+    #stats {
+        width: 100%;
+    }
+    #statscont {
+        width: 90%;
+    }
+    #tablesdiv {
+        margin: 0;
+        width: 100%;
+        display: grid;
+        justify-items: center;
+    }
+    #waittable {
+        width: fit-content;
+    }
     .bodiv {
-        height: -webkit-fill-available;
+        display: grid;
+        justify-items: center;
     }
     .player {
         width: 100%;

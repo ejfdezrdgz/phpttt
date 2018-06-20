@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include "sql.php";
 include "sessioner.php";
 

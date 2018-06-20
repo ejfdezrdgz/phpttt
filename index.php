@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include "sql.php";
 if (isset($_SESSION["unick"])) {
     header("Location: lobby.php");

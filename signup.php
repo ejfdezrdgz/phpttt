@@ -20,7 +20,7 @@ if ($_POST) {
 ?>
 
 <head>
-    <script src="jquery.min.js"></script>
+    <script src="jquery.min.js"></script> <!-- ¿Mover al body? -->
 </head>
 
 <body>
